@@ -19,7 +19,6 @@ void copy_file(const char *source, const char *destination) {
 
     char buffer[BUFFER_SIZE];
     size_t bytes;
-
     while ((bytes = fread(buffer, 1, sizeof(buffer), src)) > 0) {
         if (fwrite(buffer, 1, bytes, dest) != bytes) {
             perror("Error writing to destination file");
@@ -38,8 +37,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Usage: %s <source file> <destination file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-
     copy_file(argv[1], argv[2]);
-
     return 0;
 }
